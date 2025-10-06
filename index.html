@@ -4,22 +4,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Islamic Studies — Portfolio Prototype</title>
   <style>
-    body{margin:0;font-family:system-ui;background:#0e1013;color:#eaeef3}
-    a{color:#c8a24d;text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{position:sticky;top:0;background:#14181d;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:10}
-    nav a{margin-right:10px;padding:8px;border-radius:8px;color:#eaeef3}
-    nav a.active,nav a:hover{background:#1a1d22}
-    .container{max-width:1100px;margin:auto;padding:20px}
+    :root {
+      --bg: #0b132b;
+      --accent: #1d4ed8;
+      --accent2: #2563eb;
+      --gold: #eab308;
+      --text: #eaf2ff;
+      --muted: #94a3b8;
+      --card: #16213e;
+      --border: #1e293b;
+      --radius: 12px;
+      --shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    body{margin:0;font-family:'Poppins',system-ui;background:var(--bg);color:var(--text)}
+    header{background:linear-gradient(90deg,var(--card),#1e3a8a);padding:12px 24px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow)}
+    header strong{font-size:1.1rem;color:var(--gold)}
+    nav a{margin-right:12px;padding:8px 12px;border-radius:var(--radius);color:var(--text);text-decoration:none;transition:0.2s}
+    nav a.active,nav a:hover{background:var(--accent2)}
+    .container{max-width:1100px;margin:auto;padding:24px}
+    h1,h2,h3{color:var(--gold)}
     .grid{display:grid;gap:20px}
     @media(min-width:800px){.grid{grid-template-columns:repeat(3,1fr)}}
-    .card{background:#151a21;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.3)}
-    .card h3{margin-top:0}
-    footer{text-align:center;padding:20px;color:#888;border-top:1px solid #333}
-    input,select,textarea{background:#14181d;border:1px solid #333;color:#eaeef3;padding:8px;border-radius:6px;width:100%}
-    label{display:block;margin-bottom:8px;color:#ccc}
-    form{margin-bottom:20px}
-    button{background:#c8a24d;color:#1a1a1a;border:0;border-radius:6px;padding:8px 12px;cursor:pointer;margin-top:8px}
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border)}
+    .card h3{margin-top:0;color:var(--accent2)}
+    .learn-section{background:linear-gradient(120deg,#1e3a8a,#1e40af);padding:40px 24px;border-radius:var(--radius);margin-bottom:40px}
+    .learn-section h2{color:var(--text)}
+    .learn-section .card{background:rgba(255,255,255,0.05);border-color:#1e3a8a}
+    .studied-section{border-top:3px solid var(--gold);padding-top:20px;margin-top:40px}
+    footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid var(--border)}
+    a{color:var(--gold)}
   </style>
 </head>
 <body>
@@ -28,13 +41,153 @@
     <nav>
       <a href="#home" class="active">Home</a>
       <a href="#books">Books</a>
-      <a href="#courses">Courses</a>
+      <a href="#learn">Learn</a>
+      <a href="#coursesstudied">Courses Studied</a>
       <a href="#ijazaat">Ijazaat</a>
       <a href="#certificates">Certificates</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
+  <main class="container">
+    <section id="home">
+      <h1>Portfolio of Islamic Studies</h1>
+      <p class="muted">A curated collection of books studied, courses attended, ijazaat earned, and certificates achieved in pursuit of sacred knowledge.</p>
+    </section><section id="books" style="display:none">
+  <h2>Books Studied</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Bidayat al-Abid</h3>
+      <p>By al-Hisnī — Discipline: Fiqh (Beginner)</p>
+      <p><em>Teacher: Shaykh Ahmad</em></p>
+      <p class="muted">Completed in 2025</p>
+    </div>
+    <div class="card">
+      <h3>Al-Jazariyyah</h3>
+      <p>By Ibn al-Jazari — Discipline: Tajwid (Intermediate)</p>
+      <p><em>Teacher: Dr. Kareem</em></p>
+      <p class="muted">In progress</p>
+    </div>
+    <div class="card">
+      <h3>Al-ʿAqīdah an-Naṣafiyyah</h3>
+      <p>By an-Naṣafī — Discipline: Aqeedah (Advanced)</p>
+      <p><em>Teacher: Dr. Kareem</em></p>
+      <p class="muted">Ongoing study</p>
+    </div>
+  </div>
+</section>
+
+<section id="learn" class="learn-section" style="display:none">
+  <h2>Learn</h2>
+  <p class="muted">Courses, lectures, and playlists that I recommend or share for public benefit.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Beginner Tajwid</h3>
+      <p>Platform: YouTube</p>
+      <p class="muted">6 hours • 20 lessons</p>
+      <a href="#">Watch Playlist</a>
+    </div>
+    <div class="card">
+      <h3>Intro to Fiqh — Worship</h3>
+      <p>Platform: YouTube</p>
+      <p class="muted">9 hours • 24 lessons</p>
+      <a href="#">Watch Playlist</a>
+    </div>
+    <div class="card">
+      <h3>Arabic Morphology (Ṣarf) Bootcamp</h3>
+      <p>Platform: Online Institute</p>
+      <p class="muted">8 hours • 18 lessons</p>
+      <a href="#">Watch Playlist</a>
+    </div>
+  </div>
+</section>
+
+<section id="coursesstudied" class="studied-section" style="display:none">
+  <h2>Courses Studied</h2>
+  <p class="muted">Formal or online programs I’ve completed or am currently attending.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Intermediate Aqeedah (Ashʿari Theology)</h3>
+      <p>Instructor: Shaykh Dr. Kareem</p>
+      <p>Institution: Al-Salam Academy (Online)</p>
+      <p>Discipline: Aqeedah</p>
+      <p class="muted">Completed — 2024</p>
+    </div>
+    <div class="card">
+      <h3>Advanced Fiqh: Comparative Worship</h3>
+      <p>Instructor: Shaykh Ahmad</p>
+      <p>Institution: Dar al-Ilm Institute</p>
+      <p>Discipline: Fiqh</p>
+      <p class="muted">In Progress — 2025</p>
+    </div>
+    <div class="card">
+      <h3>Introduction to Quranic Sciences</h3>
+      <p>Instructor: Ustadh Maryam</p>
+      <p>Institution: Quran Academy</p>
+      <p>Discipline: Tafsir / Ulum al-Quran</p>
+      <p class="muted">Completed — 2023</p>
+    </div>
+  </div>
+</section>
+
+<section id="ijazaat" style="display:none">
+  <h2>Ijazaat</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Qurʾān — Ḥafṣ ʿan ʿĀṣim</h3>
+      <p>Issuer: Shaykh A. Rahman</p>
+      <p>Scope: Tilawah with Tajwid</p>
+      <p class="muted">Granted May 2025</p>
+    </div>
+    <div class="card">
+      <h3>Al-Arbaʿīn an-Nawawiyyah</h3>
+      <p>Issuer: Shaykh B. Hasan</p>
+      <p>Scope: Riwayah & isnad to an-Nawawi</p>
+      <p class="muted">Granted Dec 2024</p>
+    </div>
+  </div>
+</section>
+
+<section id="certificates" style="display:none">
+  <h2>Certificates</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Intro to Ḥadīth Sciences</h3>
+      <p>Institution: Institute X</p>
+      <p class="muted">Issued Oct 2024</p>
+    </div>
+    <div class="card">
+      <h3>Arabic Level 2</h3>
+      <p>Institution: Center Y</p>
+      <p class="muted">Issued Feb 2025</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="display:none">
+  <h2>About</h2>
+  <p class="muted">This portfolio reflects an ongoing journey in Islamic learning — from traditional texts and ijazaat to modern online programs. The aesthetic combines classical beauty with digital clarity, evoking the serenity of Qurʾānic calligraphy and Andalusian blue tones.</p>
+</section>
+
+<section id="contact" style="display:none">
+  <h2>Contact</h2>
+  <p>For inquiries or collaborations, reach out at <a href="mailto:hammad@example.com">hammad@example.com</a>.</p>
+</section>
+
+  </main>
+  <footer>© <span id="year"></span> Hammad — Islamic Studies Portfolio</footer>
+  <script>
+    const navLinks=document.querySelectorAll('nav a');
+    navLinks.forEach(a=>a.addEventListener('click',()=>{
+      navLinks.forEach(l=>l.classList.remove('active'));
+      a.classList.add('active');
+      document.querySelectorAll('main section').forEach(s=>s.style.display='none');
+      document.querySelector(a.getAttribute('href')).style.display='block';
+    }));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>  </header>
   <main class="container">
     <section id="home">
       <h1>Portfolio of Islamic Studies</h1>
