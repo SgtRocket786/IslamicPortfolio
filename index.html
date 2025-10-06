@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Islamic Studies — Portfolio Prototype</title>
+  <style>
+    body{margin:0;font-family:system-ui;background:#0e1013;color:#eaeef3}
+    a{color:#c8a24d;text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;background:#14181d;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:10}
+    nav a{margin-right:10px;padding:8px;border-radius:8px;color:#eaeef3}
+    nav a.active,nav a:hover{background:#1a1d22}
+    .container{max-width:1100px;margin:auto;padding:20px}
+    .grid{display:grid;gap:20px}
+    @media(min-width:800px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:#151a21;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+    .card h3{margin-top:0}
+    footer{text-align:center;padding:20px;color:#888;border-top:1px solid #333}
+    input,select,textarea{background:#14181d;border:1px solid #333;color:#eaeef3;padding:8px;border-radius:6px;width:100%}
+    label{display:block;margin-bottom:8px;color:#ccc}
+    form{margin-bottom:20px}
+    button{background:#c8a24d;color:#1a1a1a;border:0;border-radius:6px;padding:8px 12px;cursor:pointer;margin-top:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>Hammad • Islamic Studies</strong></div>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#books">Books</a>
+      <a href="#courses">Courses</a>
+      <a href="#ijazaat">Ijazaat</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main class="container">
+    <section id="home">
+      <h1>Portfolio of Islamic Studies</h1>
+      <p>Explore books studied, courses, ijazaat, and certificates.</p>
+    </section><section id="books" style="display:none">
+  <h2>Books Studied</h2>
+  <form id="bookForm">
+    <label>Book Title<input type="text" id="bookTitle" required></label>
+    <label>Author<input type="text" id="bookAuthor" required></label>
+    <label>Discipline<select id="bookDiscipline"><option>Fiqh</option><option>Aqeedah</option><option>Tafsir</option><option>Hadith</option><option>Tajwid</option><option>Arabic</option></select></label>
+    <label>Level<select id="bookLevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
+    <label>Teacher<input type="text" id="bookTeacher"></label>
+    <button type="submit">Add Book</button>
+  </form>
+  <div id="bookList" class="grid"></div>
+</section>
+
+<section id="courses" style="display:none">
+  <h2>Courses</h2>
+  <form id="courseForm">
+    <label>Course Title<input type="text" id="courseTitle" required></label>
+    <label>Platform / Institution<input type="text" id="coursePlatform"></label>
+    <label>Topic<select id="courseTopic"><option>Fiqh</option><option>Aqeedah</option><option>Tafsir</option><option>Hadith</option><option>Tajwid</option><option>Arabic</option></select></label>
+    <label>Hours<input type="number" id="courseHours"></label>
+    <label>YouTube Playlist URL<input type="url" id="courseURL"></label>
+    <button type="submit">Add Course</button>
+  </form>
+  <div id="courseList" class="grid"></div>
+</section>
+
+<section id="ijazaat" style="display:none">
+  <h2>Ijazaat</h2>
+  <form id="ijazahForm">
+    <label>Discipline<input type="text" id="ijazahDiscipline" required></label>
+    <label>Issuer<input type="text" id="ijazahIssuer" required></label>
+    <label>Date<input type="date" id="ijazahDate"></label>
+    <label>Scope<input type="text" id="ijazahScope"></label>
+    <button type="submit">Add Ijazah</button>
+  </form>
+  <div id="ijazahList" class="grid"></div>
+</section>
+
+<section id="certificates" style="display:none">
+  <h2>Certificates</h2>
+  <form id="certForm">
+    <label>Certificate Title<input type="text" id="certTitle" required></label>
+    <label>Institution<input type="text" id="certInstitution"></label>
+    <label>Date<input type="date" id="certDate"></label>
+    <label>Verification Link<input type="url" id="certVerify"></label>
+    <button type="submit">Add Certificate</button>
+  </form>
+  <div id="certList" class="grid"></div>
+</section>
+
+<section id="about" style="display:none">
+  <h2>About</h2>
+  <p>This portfolio showcases Islamic Studies progress, books studied, courses completed, ijazaat earned, and certificates achieved. Inspired by the academic presentation style of Mohammed Hijab’s scholarly profile.</p>
+</section>
+
+<section id="contact" style="display:none">
+  <h2>Contact</h2>
+  <form onsubmit="event.preventDefault();alert('Prototype only')">
+    <label>Name<input type="text" required></label>
+    <label>Email<input type="email" required></label>
+    <label>Message<textarea required rows="4"></textarea></label>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+  </main>
+  <footer>© <span id="year"></span> Hammad — Prototype</footer>
+  <script>
+    const navLinks=document.querySelectorAll('nav a');
+    navLinks.forEach(a=>a.addEventListener('click',()=>{
+      navLinks.forEach(l=>l.classList.remove('active'));
+      a.classList.add('active');
+      document.querySelectorAll('main section').forEach(s=>s.style.display='none');
+      document.querySelector(a.getAttribute('href')).style.display='block';
+    }));
+    document.getElementById('year').textContent=new Date().getFullYear();let books=[],courses=[],ijazaat=[],certificates=[];
+const bookList=document.getElementById('bookList');
+const courseList=document.getElementById('courseList');
+const ijazahList=document.getElementById('ijazahList');
+const certList=document.getElementById('certList');
+
+document.getElementById('bookForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  const b={title:f.bookTitle.value,author:f.bookAuthor.value,discipline:f.bookDiscipline.value,level:f.bookLevel.value,teacher:f.bookTeacher.value};
+  books.push(b);renderBooks();f.reset();
+});
+
+document.getElementById('courseForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  const c={title:f.courseTitle.value,platform:f.coursePlatform.value,topic:f.courseTopic.value,hours:f.courseHours.value,url:f.courseURL.value};
+  courses.push(c);renderCourses();f.reset();
+});
+
+document.getElementById('ijazahForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  const i={discipline:f.ijazahDiscipline.value,issuer:f.ijazahIssuer.value,date:f.ijazahDate.value,scope:f.ijazahScope.value};
+  ijazaat.push(i);renderIjazaat();f.reset();
+});
+
+document.getElementById('certForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  const c={title:f.certTitle.value,institution:f.certInstitution.value,date:f.certDate.value,verify:f.certVerify.value};
+  certificates.push(c);renderCertificates();f.reset();
+});
+
+function renderBooks(){bookList.innerHTML='';books.forEach((b,i)=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${b.title}</h3><p>${b.author}</p><p>${b.discipline} • ${b.level}</p><p><em>${b.teacher||''}</em></p><button onclick="deleteBook(${i})">Remove</button>`;bookList.appendChild(c);});}
+function renderCourses(){courseList.innerHTML='';courses.forEach((c,i)=>{const el=document.createElement('div');el.className='card';el.innerHTML=`<h3>${c.title}</h3><p>${c.platform}</p><p>${c.topic} • ${c.hours||0}h</p><a target="_blank" href="${c.url}">Open Playlist</a><br><button onclick="deleteCourse(${i})">Remove</button>`;courseList.appendChild(el);});}
+function renderIjazaat(){ijazahList.innerHTML='';ijazaat.forEach((i,x)=>{const el=document.createElement('div');el.className='card';el.innerHTML=`<h3>${i.discipline}</h3><p>${i.issuer}</p><p>${i.scope||''}</p><p>${i.date||''}</p><button onclick="deleteIjazah(${x})">Remove</button>`;ijazahList.appendChild(el);});}
+function renderCertificates(){certList.innerHTML='';certificates.forEach((c,i)=>{const el=document.createElement('div');el.className='card';el.innerHTML=`<h3>${c.title}</h3><p>${c.institution}</p><p>${c.date||''}</p>${c.verify?`<a target="_blank" href="${c.verify}">Verify</a>`:''}<br><button onclick="deleteCert(${i})">Remove</button>`;certList.appendChild(el);});}
+
+window.deleteBook=i=>{books.splice(i,1);renderBooks()};
+window.deleteCourse=i=>{courses.splice(i,1);renderCourses()};
+window.deleteIjazah=i=>{ijazaat.splice(i,1);renderIjazaat()};
+window.deleteCert=i=>{certificates.splice(i,1);renderCertificates()};
+
+  </script>
+</body>
+</html>
