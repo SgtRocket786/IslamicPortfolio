@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -6,9 +7,8 @@
   <style>
     :root {
       --bg: #0b132b;          /* deep navy */
-      --ink: #0f172a;         /* slate */
-      --indigo: #1e40af;      /* royal */
-      --indigo-2: #1e3a8a;
+      --indigo: #1e3a8a;      /* royal */
+      --indigo-2: #1d4ed8;    /* brighter */
       --accent: #2563eb;      /* link/cta */
       --gold: #eab308;        /* accent gold */
       --text: #eaf2ff;        /* base text */
@@ -17,94 +17,90 @@
       --border: #1e293b;      /* subtle border */
       --radius: 14px;
       --shadow: 0 10px 30px rgba(0,0,0,.25);
-    }/* Base */
-html { scroll-behavior: smooth; }
-body { margin:0; font-family: system-ui, Segoe UI, Roboto, "Noto Sans", Arial; background: var(--bg); color: var(--text); }
-a { color: var(--gold); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.container { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+    }
 
-/* Header */
-header {
-  position: sticky; top:0; z-index: 50;
-  background: linear-gradient(90deg, var(--card), var(--indigo-2));
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  backdrop-filter: saturate(140%) blur(6px);
-}
-.nav-wrap { display:flex; align-items:center; justify-content:space-between; padding:12px 10px; }
-.brand { display:flex; align-items:center; gap:10px; font-weight:800; color: var(--gold); letter-spacing:.2px; }
-.brand .dot { width:10px; height:10px; border-radius:50%; background:var(--gold); box-shadow: 0 0 0 4px rgba(234,179,8,.18); }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family: system-ui, Segoe UI, Roboto, "Noto Sans", Arial; background: var(--bg); color: var(--text); }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
 
-nav.primary { display:flex; align-items:center; gap: 8px; }
-nav.primary a { color: var(--text); padding:8px 10px; border-radius:10px; }
-nav.primary a.active, nav.primary a:hover { background: rgba(255,255,255,.08); }
+    /* Header */
+    header { position: sticky; top:0; z-index: 50; background: linear-gradient(90deg, var(--card), var(--indigo)); border-bottom: 1px solid rgba(255,255,255,.06); backdrop-filter: saturate(140%) blur(6px); }
+    .nav-wrap { display:flex; align-items:center; justify-content:space-between; padding:12px 10px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; color: var(--gold); letter-spacing:.2px; }
+    .brand .dot { width:10px; height:10px; border-radius:50%; background:var(--gold); box-shadow: 0 0 0 4px rgba(234,179,8,.18); }
 
-/* Hamburger */
-.menu-toggle { display:none; background: transparent; border:0; color: var(--text); font-size: 26px; padding:6px 10px; cursor:pointer; }
-.mobile-menu { position: fixed; inset:0; background: rgba(10,14,26,.92); backdrop-filter: blur(6px); display:none; align-items:center; justify-content:center; }
-.mobile-menu.open { display:flex; }
-.mobile-menu ul { list-style:none; padding:0; margin:0; text-align:center; }
-.mobile-menu a { display:block; padding:14px 22px; font-size:20px; color:var(--text); text-decoration:none; border-radius:10px; }
-.mobile-menu a:hover { background: rgba(255,255,255,.08); }
+    nav.primary { display:flex; align-items:center; gap: 8px; }
+    nav.primary a { color: var(--text); padding:8px 10px; border-radius:10px; }
+    nav.primary a.active, nav.primary a:hover { background: rgba(255,255,255,.08); }
 
-@media (max-width: 900px){
-  nav.primary { display:none; }
-  .menu-toggle { display:block; }
-}
+    /* Hamburger */
+    .menu-toggle { display:none; background: transparent; border:0; color: var(--text); font-size: 26px; padding:6px 10px; cursor:pointer; }
+    .mobile-menu { position: fixed; inset:0; background: rgba(10,14,26,.92); backdrop-filter: blur(6px); display:none; align-items:center; justify-content:center; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu ul { list-style:none; padding:0; margin:0; text-align:center; }
+    .mobile-menu a { display:block; padding:14px 22px; font-size:20px; color:var(--text); text-decoration:none; border-radius:10px; }
+    .mobile-menu a:hover { background: rgba(255,255,255,.08); }
+    @media (max-width: 900px){ nav.primary { display:none; } .menu-toggle { display:block; } }
 
-/* Hero */
-.hero {
-  position: relative;
-  background: radial-gradient(1200px 600px at 20% -10%, rgba(37,99,235,.35), transparent 60%),
-              linear-gradient(180deg, var(--indigo-2), var(--bg));
-  overflow:hidden;
-}
-/* Geometric pattern overlay (subtle) */
-.hero::before { content:""; position:absolute; inset:0;
-  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.04) 0 2px, transparent 2px 40px),
-                    repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 2px, transparent 2px 36px);
-  opacity:.25; pointer-events:none; }
+    /* Hero */
+    .hero { position: relative; background: radial-gradient(1200px 600px at 20% -10%, rgba(37,99,235,.35), transparent 60%), linear-gradient(180deg, var(--indigo), var(--bg)); overflow:hidden; }
+    .hero::before { content:""; position:absolute; inset:0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.04) 0 2px, transparent 2px 40px), repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 2px, transparent 2px 36px); opacity:.25; pointer-events:none; }
+    .hero .inner { display:grid; grid-template-columns: 1.1fr .9fr; gap: 26px; align-items:center; padding: 56px 0; }
+    @media (max-width: 900px){ .hero .inner{ grid-template-columns: 1fr; padding: 36px 0; } }
+    .headline { font-size: clamp(28px, 5vw, 44px); margin: 0 0 10px; color: #f8fafc; }
+    .subhead { color: var(--muted); font-size: clamp(14px, 2.2vw, 18px); margin: 0 0 18px; }
+    .cta-row { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-block; padding:10px 14px; border-radius: 999px; font-weight:600; border:1px solid rgba(255,255,255,.12); color: var(--text); background: rgba(255,255,255,.06); box-shadow: var(--shadow); }
+    .btn.gold { background: var(--gold); color: #1a1a1a; border-color: rgba(0,0,0,.1); }
+    .btn:hover { transform: translateY(-1px); }
 
-.hero .inner { display:grid; grid-template-columns: 1.1fr .9fr; gap: 26px; align-items:center; padding: 56px 0; }
-@media (max-width: 900px){ .hero .inner{ grid-template-columns: 1fr; padding: 36px 0; } }
+    /* Profile placeholder */
+    .pfp-wrap { display:grid; place-items:center; }
+    .pfp { width: 260px; height: 260px; border-radius: 50%; border: 4px solid var(--gold); box-shadow: 0 0 0 8px rgba(234,179,8,.12), var(--shadow); overflow:hidden; background: radial-gradient(circle at 30% 30%, #1f2a44, #0b132b); position:relative; }
+    .pfp img { width:100%; height:100%; object-fit: cover; display:block; }
+    .pfp .fallback { position:absolute; inset:0; display:grid; place-items:center; color:#cbd5e1; font-weight:700; letter-spacing:.5px; }
 
-.headline { font-size: clamp(28px, 5vw, 44px); margin: 0 0 10px; color: #f8fafc; }
-.subhead { color: var(--muted); font-size: clamp(14px, 2.2vw, 18px); margin: 0 0 18px; }
+    /* Sections & Cards */
+    .section { padding: 28px 0 40px; }
+    h2 { color: var(--gold); font-size: clamp(20px, 2.6vw, 28px); margin: 0 0 10px; }
+    .muted { color: var(--muted); }
+    .grid { display:grid; gap:18px; }
+    @media (min-width: 980px){ .grid.cols-2 { grid-template-columns: repeat(2, 1fr); } .grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+    .card { background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease, outline .2s ease; }
+    .card:hover { transform: translateY(-3px); outline: 1px solid rgba(234,179,8,.25); }
+    .card h3 { margin:0 0 6px; color: #bcd2ff; }
 
-.cta-row { display:flex; gap:12px; flex-wrap:wrap; }
-.btn { display:inline-block; padding:10px 14px; border-radius: 999px; font-weight:600; border:1px solid rgba(255,255,255,.12); color: var(--text); background: rgba(255,255,255,.06); box-shadow: var(--shadow); }
-.btn.gold { background: var(--gold); color: #1a1a1a; border-color: rgba(0,0,0,.1); }
-.btn:hover { transform: translateY(-1px); }
+    /* Articles */
+    .article-card { cursor:pointer; display:block; text-decoration:none; color:inherit; }
+    .thumb { width:100%; aspect-ratio: 16 / 9; border-radius: 12px; object-fit: cover; display:block; background:#0b1224; }
+    .caption { color: var(--muted); margin: 6px 0 8px; }
+    .meta { color: #a9b7d0; font-size: 13px; }
 
-/* Profile placeholder */
-.pfp-wrap { display:grid; place-items:center; }
-.pfp { width: 260px; height: 260px; border-radius: 50%; border: 4px solid var(--gold); box-shadow: 0 0 0 8px rgba(234,179,8,.12), var(--shadow); overflow:hidden; background: radial-gradient(circle at 30% 30%, #1f2a44, #0b132b); position:relative; }
-.pfp img { width:100%; height:100%; object-fit: cover; display:block; }
-.pfp .fallback { position:absolute; inset:0; display:grid; place-items:center; color:#cbd5e1; font-weight:700; letter-spacing:.5px; }
+    /* Education */
+    .edu-list { display:grid; gap:12px; }
+    .edu-item { background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
 
-/* Sections & Cards */
-.section { padding: 28px 0 40px; }
-h2 { color: var(--gold); font-size: clamp(20px, 2.6vw, 28px); margin: 0 0 10px; }
-.muted { color: var(--muted); }
-.grid { display:grid; gap:18px; }
-@media (min-width: 860px){ .grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
-.card { background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease, outline .2s ease; }
-.card:hover { transform: translateY(-3px); outline: 1px solid rgba(234,179,8,.25); }
-.card h3 { margin:0 0 6px; color: #bcd2ff; }
+    /* Isnād modal */
+    .modal { position: fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,.6); backdrop-filter: blur(4px); z-index: 100; }
+    .modal.open { display:flex; }
+    .modal-card { background: var(--card); border:1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); max-width: 820px; width: 92%; padding: 18px; }
+    .modal-head { display:flex; align-items:center; justify-content:space-between; margin-bottom: 10px; }
+    .chain { padding-left: 0; margin: 8px 0 12px; list-style:none; position: relative; }
+    .chain li { padding-left: 18px; position: relative; margin: 6px 0; }
+    .chain li::before { content: ""; position:absolute; left: 6px; top: 0; bottom: 0; width:2px; background: rgba(234,179,8,.55); }
+    .chain li::after { content: ""; position:absolute; left: 0; top: 8px; width: 12px; height: 2px; background: rgba(234,179,8,.55); }
+    .cert-preview { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+    .cert-thumb { width: 240px; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; border:1px solid var(--border); }
 
-/* Learn vs Studied visual differentiation */
-.learn-section { background: linear-gradient(120deg, #1e3a8a, #1d4ed8); padding: 34px 22px; border-radius: var(--radius); margin-top: 14px; }
-.learn-section .card { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); }
-.studied-section { border-top: 3px solid var(--gold); padding-top: 22px; margin-top: 30px; }
+    /* Footer */
+    footer { margin-top: 30px; background: linear-gradient(180deg, transparent, rgba(255,255,255,.04)); border-top: 1px solid rgba(255,255,255,.06); color: var(--muted); }
+    footer .inner { padding: 20px 0; text-align:center; }
 
-/* Footer */
-footer { margin-top: 30px; background: linear-gradient(180deg, transparent, rgba(255,255,255,.04)); border-top: 1px solid rgba(255,255,255,.06); color: var(--muted); }
-footer .inner { padding: 20px 0; text-align:center; }
-
-/* Lazy reveal */
-.reveal { opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.visible { opacity: 1; transform: none; }
-
+    /* Lazy reveal */
+    .reveal { opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
@@ -117,11 +113,8 @@ footer .inner { padding: 20px 0; text-align:center; }
       </div>
       <nav class="primary" aria-label="Primary">
         <a href="#home" class="active">Home</a>
-        <a href="#books">Books</a>
-        <a href="#learn">Learn</a>
-        <a href="#coursesstudied">Courses Studied</a>
-        <a href="#ijazaat">Ijazaat</a>
-        <a href="#certificates">Certificates</a>
+        <a href="#articles">Articles</a>
+        <a href="#education">Education</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -130,23 +123,23 @@ footer .inner { padding: 20px 0; text-align:center; }
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#books">Books</a></li>
-        <li><a href="#learn">Learn</a></li>
-        <li><a href="#coursesstudied">Courses Studied</a></li>
-        <li><a href="#ijazaat">Ijazaat</a></li>
-        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-  </header>  <!-- Hero / Landing -->  <section id="home" class="hero">
+  </header>
+
+  <!-- Hero / Landing -->
+  <section id="home" class="hero">
     <div class="container inner">
       <div class="reveal">
         <h1 class="headline">Pursuit of Sacred Knowledge</h1>
-        <p class="subhead">A record of books, courses, and ijāzāt studied with teachers — inspired by classical isnād culture and clear categorization like Abu Amina Elias.</p>
+        <p class="subhead">Documenting my Islamic Studies journey — education, ijāzāt, certificates, and reflections.</p>
         <div class="cta-row">
-          <a class="btn gold" href="#books">View My Studies</a>
-          <a class="btn" href="#about">Learn More</a>
+          <a class="btn gold" href="#articles">Read Articles</a>
+          <a class="btn" href="#education">View Education</a>
         </div>
       </div>
       <div class="pfp-wrap reveal">
@@ -156,72 +149,152 @@ footer .inner { padding: 20px 0; text-align:center; }
         </div>
       </div>
     </div>
-  </section>  <main class="container">
-    <!-- Books Studied -->
-    <section id="books" class="section reveal" style="display:none">
-      <h2>Books Studied</h2>
-      <p class="muted">Curated notes and progress — structured presentation similar to Mohammed Hijab’s scholarly profile.</p>
-      <div class="grid cols-3">
-        <article class="card"><h3>Bidayat al-ʿĀbid</h3><p>al-Hisnī — Fiqh (Beginner)</p><p><em>Teacher: Shaykh Ahmad</em></p><p class="muted">Completed 2025</p></article>
-        <article class="card"><h3>Al-Jazariyyah</h3><p>Ibn al-Jazarī — Tajwīd (Intermediate)</p><p><em>Teacher: Dr. Kareem</em></p><p class="muted">In progress</p></article>
-        <article class="card"><h3>Al-ʿAqīdah an-Naṣafiyyah</h3><p>an-Naṣafī — ʿAqīdah (Advanced)</p><p><em>Teacher: Dr. Kareem</em></p><p class="muted">Ongoing study</p></article>
+  </section>
+
+  <main class="container">
+    <!-- Latest Articles on Home -->
+    <section class="section reveal" id="home-latest">
+      <h2>Latest Articles</h2>
+      <div id="latestArticles" class="grid cols-3"></div>
+    </section>
+
+    <!-- Education Highlights on Home -->
+    <section class="section reveal" id="home-edu">
+      <h2>Recent Education Highlights</h2>
+      <div id="eduHighlights" class="edu-list"></div>
+    </section>
+
+    <!-- Articles page -->
+    <section id="articles" class="section reveal" style="display:none">
+      <h2>Articles</h2>
+      <p class="muted">Posts with brief reflections and notes, inspired by the clarity of AbuAminaElias.com with a modern visual touch.</p>
+      <div id="articleGrid" class="grid cols-2"></div>
+    </section>
+
+    <!-- Education page (inline, includes ijazaat & certificates) -->
+    <section id="education" class="section reveal" style="display:none">
+      <h2>Education & Islamic Studies</h2>
+      <div id="eduList" class="edu-list"></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section reveal" style="display:none">
+      <h2>About</h2>
+      <p class="muted">A student of Islamic sciences documenting a learning journey in Fiqh, ʿAqīdah, and Qurʾānic studies — organized like a scholarly notebook with modern readability.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section reveal" style="display:none">
+      <h2>Contact</h2>
+      <p>For inquiries or collaborations, reach out at <a href="mailto:hammad@example.com">hammad@example.com</a>.</p>
+    </section>
+  </main>
+
+  <!-- Isnād Modal -->
+  <div class="modal" id="isnadModal" aria-hidden="true" role="dialog" aria-label="Isnad chain and certificate">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="modalTitle" style="margin:0;color:#bcd2ff">Isnād Chain</h3>
+        <button id="modalClose" class="btn" style="border-radius:10px">Close</button>
       </div>
-    </section><!-- Learn (resources you recommend/teach) -->
-<section id="learn" class="section learn-section reveal" style="display:none">
-  <h2>Learn</h2>
-  <p class="muted">Courses, lectures, and playlists I recommend or share for public benefit.</p>
-  <div class="grid cols-3">
-    <article class="card"><h3>Beginner Tajwīd</h3><p>Platform: YouTube</p><p class="muted">6 hours • 20 lessons</p><a href="#">Watch Playlist</a></article>
-    <article class="card"><h3>Intro to Fiqh — ʿIbādāt</h3><p>Platform: YouTube</p><p class="muted">9 hours • 24 lessons</p><a href="#">Watch Playlist</a></article>
-    <article class="card"><h3>Ṣarf Bootcamp</h3><p>Platform: Online Institute</p><p class="muted">8 hours • 18 lessons</p><a href="#">Watch Playlist</a></article>
+      <div id="modalBody">
+        <!-- chain + certificate injected here -->
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- Courses Studied (your academic record) -->
-<section id="coursesstudied" class="section studied-section reveal" style="display:none">
-  <h2>Courses Studied</h2>
-  <p class="muted">Formal or online programs I’ve completed or am currently attending.</p>
-  <div class="grid cols-3">
-    <article class="card"><h3>Intermediate ʿAqīdah (Ashʿarī Theology)</h3><p>Instructor: Dr. Kareem</p><p>Institution: Al-Salām Academy (Online)</p><p>Discipline: ʿAqīdah</p><p class="muted">Completed — 2024</p></article>
-    <article class="card"><h3>Advanced Fiqh: Comparative ʿIbādāt</h3><p>Instructor: Shaykh Ahmad</p><p>Institution: Dār al-ʿIlm Institute</p><p>Discipline: Fiqh</p><p class="muted">In Progress — 2025</p></article>
-    <article class="card"><h3>Introduction to Qurʾānic Sciences</h3><p>Instructor: Ustadh Maryam</p><p>Institution: Qurʾān Academy</p><p>Discipline: Tafsīr / ʿUlūm al-Qurʾān</p><p class="muted">Completed — 2023</p></article>
-  </div>
-</section>
-
-<!-- Ijazaat -->
-<section id="ijazaat" class="section reveal" style="display:none">
-  <h2>Ijāzāt</h2>
-  <div class="grid cols-3">
-    <article class="card"><h3>Qurʾān — Ḥafṣ ʿan ʿĀṣim</h3><p>Issuer: Shaykh A. Rahman</p><p>Scope: Tilāwah with Tajwīd</p><p class="muted">Granted May 2025</p></article>
-    <article class="card"><h3>Al-Arbaʿīn an-Nawawiyyah</h3><p>Issuer: Shaykh B. Hasan</p><p>Scope: Riwayah & isnād to an-Nawawī</p><p class="muted">Granted Dec 2024</p></article>
-  </div>
-</section>
-
-<!-- Certificates -->
-<section id="certificates" class="section reveal" style="display:none">
-  <h2>Certificates</h2>
-  <div class="grid cols-3">
-    <article class="card"><h3>Intro to Ḥadīth Sciences</h3><p>Institution: Institute X</p><p class="muted">Issued Oct 2024</p></article>
-    <article class="card"><h3>Arabic Level 2</h3><p>Institution: Center Y</p><p class="muted">Issued Feb 2025</p></article>
-  </div>
-</section>
-
-<!-- About -->
-<section id="about" class="section reveal" style="display:none">
-  <h2>About</h2>
-  <p class="muted">This portfolio reflects a journey in Islamic learning — blending traditional chains (isnād) with modern organization and discoverability (clear categories and series, like AbuAminaElias). The design keeps a scholarly tone reminiscent of classical calligraphy with Andalusian blue tones.</p>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="section reveal" style="display:none">
-  <h2>Contact</h2>
-  <p>For inquiries or collaborations, reach out at <a href="mailto:hammad@example.com">hammad@example.com</a>.</p>
-</section>
-
-  </main>  <!-- Footer -->  <footer>
+  <!-- Footer -->
+  <footer>
     <div class="container inner">© <span id="year"></span> Hammad — Islamic Studies Portfolio</div>
-  </footer>  <script>
-    // Routing (hash-based) + active link sync for desktop
+  </footer>
+
+  <script>
+    // ---------------- Sample Data ----------------
+    const Articles = [
+      { id:'a1', title:'The Meaning of Istiwa in Classical Scholarship', caption:'How early Sunni scholars approached the term “istiwaʾ” with linguistic humility.', category:'Aqeedah', date:'2025-06-12', thumb:'article1.jpg' },
+      { id:'a2', title:'Purification: A Practical Note Across Madhhabs', caption:'Concise notes on ṭahārah with references across Hanafi and Shafi schools.', category:'Fiqh', date:'2025-05-28', thumb:'article2.jpg' },
+      { id:'a3', title:'On Seeking Knowledge with Adab', caption:'Reflections on intention, method, and companionship in studies.', category:'Reflections', date:'2025-04-18', thumb:'article3.jpg' },
+    ];
+
+    const Education = [
+      { type:'formal', text:'2025 – Present — Dār al-ʿIlm Institute — Advanced Fiqh (Comparative ʿIbādāt) — Instructor: Shaykh Ahmad' },
+      { type:'ijazah', title:'Qurʾān — Ḥafṣ ʿan ʿĀṣim', issuer:'Shaykh A. Rahman', date:'May 2025', chain:['You','Shaykh A. Rahman','Shaykh X','al-Shāṭibī','Ibn Mujāhid','Prophet ﷺ'], certImg:'ijazah-quran.jpg', certPdf:'#' },
+      { type:'certificate', text:'2024 — Certificate: Al-Arbaʿīn an-Nawawiyyah — Issuer: Shaykh B. Hasan' },
+      { type:'formal', text:'2023 – 2024 — Qurʾān Academy — Tajwīd & Qirāʾāt — Instructor: Shaykh A. Rahman' },
+      { type:'formal', text:'2021 – 2022 — Al-Salām Academy — Foundations in Fiqh & ʿAqīdah — Instructor: Dr. Kareem' },
+    ];
+
+    // --------------- Helpers ---------------
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+    const byDateDesc = (a,b)=> (b.date||'').localeCompare(a.date||'');
+
+    function renderHomeLatest(){
+      const wrap = $('#latestArticles'); wrap.innerHTML = '';
+      Articles.slice(0,3).forEach(a=>{
+        wrap.appendChild(articleCard(a));
+      });
+    }
+
+    function articleCard(a){
+      const link = document.createElement('a'); link.className='card article-card'; link.href = `article.html?id=${a.id}`;
+      link.innerHTML = `
+        <img class="thumb" src="${a.thumb}" alt="${a.title}" loading="lazy" onerror="this.style.display='none'" />
+        <h3>${a.title}</h3>
+        <p class="caption">${a.caption}</p>
+        <div class="meta">${a.category} • ${new Date(a.date).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})}</div>
+      `;
+      return link;
+    }
+
+    function renderArticlesPage(){
+      const grid = $('#articleGrid'); grid.innerHTML = '';
+      Articles.forEach(a=> grid.appendChild(articleCard(a)) );
+    }
+
+    function renderEduHighlights(){
+      const wrap = $('#eduHighlights'); wrap.innerHTML = '';
+      Education.slice(0,2).forEach(e=>{
+        const item = document.createElement('div'); item.className='edu-item';
+        item.textContent = e.type==='ijazah' ? `${e.date} — Ijāzah: ${e.title} — Issuer: ${e.issuer}` : (e.text || '');
+        wrap.appendChild(item);
+      });
+    }
+
+    function renderEducationPage(){
+      const list = $('#eduList'); list.innerHTML = '';
+      Education.forEach(e=>{
+        if(e.type==='ijazah'){
+          const el = document.createElement('div'); el.className='edu-item';
+          el.innerHTML = `${e.date} — Ijāzah: <strong>${e.title}</strong> — Issuer: ${e.issuer} — <a href="#" data-isnad="${e.title}">View Isnād</a>`;
+          el.querySelector('[data-isnad]').addEventListener('click', (ev)=>{ ev.preventDefault(); openIsnad(e); });
+          list.appendChild(el);
+        } else {
+          const el = document.createElement('div'); el.className='edu-item'; el.textContent = e.text; list.appendChild(el);
+        }
+      });
+    }
+
+    // Isnād modal
+    const modal = $('#isnadModal');
+    function openIsnad(entry){
+      $('#modalTitle').textContent = `Isnād — ${entry.title}`;
+      const body = document.createElement('div');
+      const ul = document.createElement('ul'); ul.className='chain';
+      entry.chain.forEach(name=>{ const li=document.createElement('li'); li.textContent=name; ul.appendChild(li); });
+      const cert = document.createElement('div'); cert.className='cert-preview';
+      cert.innerHTML = `
+        ${entry.certImg ? `<img class="cert-thumb" src="${entry.certImg}" alt="Certificate preview" loading="lazy"/>` : ''}
+        ${entry.certPdf ? `<a class="btn" href="${entry.certPdf}" target="_blank" rel="noopener">View PDF</a>` : ''}
+      `;
+      body.appendChild(ul); body.appendChild(cert);
+      const host = $('#modalBody'); host.innerHTML=''; host.appendChild(body);
+      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    }
+    $('#modalClose').addEventListener('click', ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+
+    // Routing & menu
     const navLinks = Array.from(document.querySelectorAll('nav.primary a'));
     function showSection(hash){
       const id = (hash || '#home');
@@ -230,309 +303,28 @@ footer .inner { padding: 20px 0; text-align:center; }
         else if(!s.classList.contains('hero')){ s.style.display = 'none'; }
       });
       navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href')===id));
+      if(id==='#articles') renderArticlesPage();
+      if(id==='#education') renderEducationPage();
     }
     window.addEventListener('hashchange', ()=> showSection(location.hash));
 
-    // Mobile menu toggle
     const menuBtn = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     function closeMenu(){ mobileMenu.classList.remove('open'); mobileMenu.setAttribute('aria-hidden','true'); }
-    menuBtn.addEventListener('click', ()=> {
-      const open = mobileMenu.classList.toggle('open');
-      mobileMenu.setAttribute('aria-hidden', String(!open));
-    });
-    mobileMenu.addEventListener('click', (e)=>{
-      if(e.target.tagName === 'A'){ closeMenu(); showSection(e.target.getAttribute('href')); }
-      if(e.target === mobileMenu){ closeMenu(); }
-    });
+    menuBtn.addEventListener('click', ()=> { const open = mobileMenu.classList.toggle('open'); mobileMenu.setAttribute('aria-hidden', String(!open)); });
+    mobileMenu.addEventListener('click', (e)=>{ if(e.target.tagName === 'A'){ closeMenu(); showSection(e.target.getAttribute('href')); } if(e.target === mobileMenu){ closeMenu(); } });
 
-    // Lazy reveal (IntersectionObserver)
-    const io = new IntersectionObserver((entries)=>{
-      for (const ent of entries){ if(ent.isIntersecting){ ent.target.classList.add('visible'); io.unobserve(ent.target); } }
-    }, { threshold: .12 });
+    // Lazy reveal
+    const io = new IntersectionObserver((entries)=>{ for (const ent of entries){ if(ent.isIntersecting){ ent.target.classList.add('visible'); io.unobserve(ent.target); } } }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Initialize
+    // Init home
     document.getElementById('year').textContent = new Date().getFullYear();
+    renderHomeLatest();
+    renderEduHighlights();
     showSection(location.hash || '#home');
-  </script></body>
-</html></head>
-<body>
-  <header>
-    <div><strong>Hammad • Islamic Studies</strong></div>
-    <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#books">Books</a>
-      <a href="#learn">Learn</a>
-      <a href="#coursesstudied">Courses Studied</a>
-      <a href="#ijazaat">Ijazaat</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-  <main class="container">
-    <section id="home">
-      <h1>Portfolio of Islamic Studies</h1>
-      <p class="muted">A curated collection of books studied, courses attended, ijazaat earned, and certificates achieved in pursuit of sacred knowledge.</p>
-    </section><section id="books" style="display:none">
-  <h2>Books Studied</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Bidayat al-Abid</h3>
-      <p>By al-Hisnī — Discipline: Fiqh (Beginner)</p>
-      <p><em>Teacher: Shaykh Ahmad</em></p>
-      <p class="muted">Completed in 2025</p>
-    </div>
-    <div class="card">
-      <h3>Al-Jazariyyah</h3>
-      <p>By Ibn al-Jazari — Discipline: Tajwid (Intermediate)</p>
-      <p><em>Teacher: Dr. Kareem</em></p>
-      <p class="muted">In progress</p>
-    </div>
-    <div class="card">
-      <h3>Al-ʿAqīdah an-Naṣafiyyah</h3>
-      <p>By an-Naṣafī — Discipline: Aqeedah (Advanced)</p>
-      <p><em>Teacher: Dr. Kareem</em></p>
-      <p class="muted">Ongoing study</p>
-    </div>
-  </div>
-</section>
-
-<section id="learn" class="learn-section" style="display:none">
-  <h2>Learn</h2>
-  <p class="muted">Courses, lectures, and playlists that I recommend or share for public benefit.</p>
-  <div class="grid">
-    <div class="card">
-      <h3>Beginner Tajwid</h3>
-      <p>Platform: YouTube</p>
-      <p class="muted">6 hours • 20 lessons</p>
-      <a href="#">Watch Playlist</a>
-    </div>
-    <div class="card">
-      <h3>Intro to Fiqh — Worship</h3>
-      <p>Platform: YouTube</p>
-      <p class="muted">9 hours • 24 lessons</p>
-      <a href="#">Watch Playlist</a>
-    </div>
-    <div class="card">
-      <h3>Arabic Morphology (Ṣarf) Bootcamp</h3>
-      <p>Platform: Online Institute</p>
-      <p class="muted">8 hours • 18 lessons</p>
-      <a href="#">Watch Playlist</a>
-    </div>
-  </div>
-</section>
-
-<section id="coursesstudied" class="studied-section" style="display:none">
-  <h2>Courses Studied</h2>
-  <p class="muted">Formal or online programs I’ve completed or am currently attending.</p>
-  <div class="grid">
-    <div class="card">
-      <h3>Intermediate Aqeedah (Ashʿari Theology)</h3>
-      <p>Instructor: Shaykh Dr. Kareem</p>
-      <p>Institution: Al-Salam Academy (Online)</p>
-      <p>Discipline: Aqeedah</p>
-      <p class="muted">Completed — 2024</p>
-    </div>
-    <div class="card">
-      <h3>Advanced Fiqh: Comparative Worship</h3>
-      <p>Instructor: Shaykh Ahmad</p>
-      <p>Institution: Dar al-Ilm Institute</p>
-      <p>Discipline: Fiqh</p>
-      <p class="muted">In Progress — 2025</p>
-    </div>
-    <div class="card">
-      <h3>Introduction to Quranic Sciences</h3>
-      <p>Instructor: Ustadh Maryam</p>
-      <p>Institution: Quran Academy</p>
-      <p>Discipline: Tafsir / Ulum al-Quran</p>
-      <p class="muted">Completed — 2023</p>
-    </div>
-  </div>
-</section>
-
-<section id="ijazaat" style="display:none">
-  <h2>Ijazaat</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Qurʾān — Ḥafṣ ʿan ʿĀṣim</h3>
-      <p>Issuer: Shaykh A. Rahman</p>
-      <p>Scope: Tilawah with Tajwid</p>
-      <p class="muted">Granted May 2025</p>
-    </div>
-    <div class="card">
-      <h3>Al-Arbaʿīn an-Nawawiyyah</h3>
-      <p>Issuer: Shaykh B. Hasan</p>
-      <p>Scope: Riwayah & isnad to an-Nawawi</p>
-      <p class="muted">Granted Dec 2024</p>
-    </div>
-  </div>
-</section>
-
-<section id="certificates" style="display:none">
-  <h2>Certificates</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Intro to Ḥadīth Sciences</h3>
-      <p>Institution: Institute X</p>
-      <p class="muted">Issued Oct 2024</p>
-    </div>
-    <div class="card">
-      <h3>Arabic Level 2</h3>
-      <p>Institution: Center Y</p>
-      <p class="muted">Issued Feb 2025</p>
-    </div>
-  </div>
-</section>
-
-<section id="about" style="display:none">
-  <h2>About</h2>
-  <p class="muted">This portfolio reflects an ongoing journey in Islamic learning — from traditional texts and ijazaat to modern online programs. The aesthetic combines classical beauty with digital clarity, evoking the serenity of Qurʾānic calligraphy and Andalusian blue tones.</p>
-</section>
-
-<section id="contact" style="display:none">
-  <h2>Contact</h2>
-  <p>For inquiries or collaborations, reach out at <a href="mailto:hammad@example.com">hammad@example.com</a>.</p>
-</section>
-
-  </main>
-  <footer>© <span id="year"></span> Hammad — Islamic Studies Portfolio</footer>
-  <script>
-    const navLinks=document.querySelectorAll('nav a');
-    navLinks.forEach(a=>a.addEventListener('click',()=>{
-      navLinks.forEach(l=>l.classList.remove('active'));
-      a.classList.add('active');
-      document.querySelectorAll('main section').forEach(s=>s.style.display='none');
-      document.querySelector(a.getAttribute('href')).style.display='block';
-    }));
-    document.getElementById('year').textContent=new Date().getFullYear();
   </script>
-</body>
-</html>  </header>
-  <main class="container">
-    <section id="home">
-      <h1>Portfolio of Islamic Studies</h1>
-      <p>Explore books studied, courses, ijazaat, and certificates.</p>
-    </section><section id="books" style="display:none">
-  <h2>Books Studied</h2>
-  <form id="bookForm">
-    <label>Book Title<input type="text" id="bookTitle" required></label>
-    <label>Author<input type="text" id="bookAuthor" required></label>
-    <label>Discipline<select id="bookDiscipline"><option>Fiqh</option><option>Aqeedah</option><option>Tafsir</option><option>Hadith</option><option>Tajwid</option><option>Arabic</option></select></label>
-    <label>Level<select id="bookLevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
-    <label>Teacher<input type="text" id="bookTeacher"></label>
-    <button type="submit">Add Book</button>
-  </form>
-  <div id="bookList" class="grid"></div>
-</section>
 
-<section id="courses" style="display:none">
-  <h2>Courses</h2>
-  <form id="courseForm">
-    <label>Course Title<input type="text" id="courseTitle" required></label>
-    <label>Platform / Institution<input type="text" id="coursePlatform"></label>
-    <label>Topic<select id="courseTopic"><option>Fiqh</option><option>Aqeedah</option><option>Tafsir</option><option>Hadith</option><option>Tajwid</option><option>Arabic</option></select></label>
-    <label>Hours<input type="number" id="courseHours"></label>
-    <label>YouTube Playlist URL<input type="url" id="courseURL"></label>
-    <button type="submit">Add Course</button>
-  </form>
-  <div id="courseList" class="grid"></div>
-</section>
-
-<section id="ijazaat" style="display:none">
-  <h2>Ijazaat</h2>
-  <form id="ijazahForm">
-    <label>Discipline<input type="text" id="ijazahDiscipline" required></label>
-    <label>Issuer<input type="text" id="ijazahIssuer" required></label>
-    <label>Date<input type="date" id="ijazahDate"></label>
-    <label>Scope<input type="text" id="ijazahScope"></label>
-    <button type="submit">Add Ijazah</button>
-  </form>
-  <div id="ijazahList" class="grid"></div>
-</section>
-
-<section id="certificates" style="display:none">
-  <h2>Certificates</h2>
-  <form id="certForm">
-    <label>Certificate Title<input type="text" id="certTitle" required></label>
-    <label>Institution<input type="text" id="certInstitution"></label>
-    <label>Date<input type="date" id="certDate"></label>
-    <label>Verification Link<input type="url" id="certVerify"></label>
-    <button type="submit">Add Certificate</button>
-  </form>
-  <div id="certList" class="grid"></div>
-</section>
-
-<section id="about" style="display:none">
-  <h2>About</h2>
-  <p>This portfolio showcases Islamic Studies progress, books studied, courses completed, ijazaat earned, and certificates achieved. Inspired by the academic presentation style of Mohammed Hijab’s scholarly profile.</p>
-</section>
-
-<section id="contact" style="display:none">
-  <h2>Contact</h2>
-  <form onsubmit="event.preventDefault();alert('Prototype only')">
-    <label>Name<input type="text" required></label>
-    <label>Email<input type="email" required></label>
-    <label>Message<textarea required rows="4"></textarea></label>
-    <button type="submit">Send</button>
-  </form>
-</section>
-
-  </main>
-  <footer>© <span id="year"></span> Hammad — Prototype</footer>
-  <script>
-    const navLinks=document.querySelectorAll('nav a');
-    navLinks.forEach(a=>a.addEventListener('click',()=>{
-      navLinks.forEach(l=>l.classList.remove('active'));
-      a.classList.add('active');
-      document.querySelectorAll('main section').forEach(s=>s.style.display='none');
-      document.querySelector(a.getAttribute('href')).style.display='block';
-    }));
-    document.getElementById('year').textContent=new Date().getFullYear();let books=[],courses=[],ijazaat=[],certificates=[];
-const bookList=document.getElementById('bookList');
-const courseList=document.getElementById('courseList');
-const ijazahList=document.getElementById('ijazahList');
-const certList=document.getElementById('certList');
-
-document.getElementById('bookForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const f=e.target;
-  const b={title:f.bookTitle.value,author:f.bookAuthor.value,discipline:f.bookDiscipline.value,level:f.bookLevel.value,teacher:f.bookTeacher.value};
-  books.push(b);renderBooks();f.reset();
-});
-
-document.getElementById('courseForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const f=e.target;
-  const c={title:f.courseTitle.value,platform:f.coursePlatform.value,topic:f.courseTopic.value,hours:f.courseHours.value,url:f.courseURL.value};
-  courses.push(c);renderCourses();f.reset();
-});
-
-document.getElementById('ijazahForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const f=e.target;
-  const i={discipline:f.ijazahDiscipline.value,issuer:f.ijazahIssuer.value,date:f.ijazahDate.value,scope:f.ijazahScope.value};
-  ijazaat.push(i);renderIjazaat();f.reset();
-});
-
-document.getElementById('certForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const f=e.target;
-  const c={title:f.certTitle.value,institution:f.certInstitution.value,date:f.certDate.value,verify:f.certVerify.value};
-  certificates.push(c);renderCertificates();f.reset();
-});
-
-function renderBooks(){bookList.innerHTML='';books.forEach((b,i)=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${b.title}</h3><p>${b.author}</p><p>${b.discipline} • ${b.level}</p><p><em>${b.teacher||''}</em></p><button onclick="deleteBook(${i})">Remove</button>`;bookList.appendChild(c);});}
-function renderCourses(){courseList.innerHTML='';courses.forEach((c,i)=>{const el=document.createElement('div');el.className='card';el.innerHTML=`<h3>${c.title}</h3><p>${c.platform}</p><p>${c.topic} • ${c.hours||0}h</p><a target="_blank" href="${c.url}">Open Playlist</a><br><button onclick="deleteCourse(${i})">Remove</button>`;courseList.appendChild(el);});}
-function renderIjazaat(){ijazahList.innerHTML='';ijazaat.forEach((i,x)=>{const el=document.createElement('div');el.className='card';el.innerHTML=`<h3>${i.discipline}</h3><p>${i.issuer}</p><p>${i.scope||''}</p><p>${i.date||''}</p><button onclick="deleteIjazah(${x})">Remove</button>`;ijazahList.appendChild(el);});}
-function renderCertificates(){certList.innerHTML='';certificates.forEach((c,i)=>{const el=document.createElement('div');el.className='card';el.innerHTML=`<h3>${c.title}</h3><p>${c.institution}</p><p>${c.date||''}</p>${c.verify?`<a target="_blank" href="${c.verify}">Verify</a>`:''}<br><button onclick="deleteCert(${i})">Remove</button>`;certList.appendChild(el);});}
-
-window.deleteBook=i=>{books.splice(i,1);renderBooks()};
-window.deleteCourse=i=>{courses.splice(i,1);renderCourses()};
-window.deleteIjazah=i=>{ijazaat.splice(i,1);renderIjazaat()};
-window.deleteCert=i=>{certificates.splice(i,1);renderCertificates()};
-
-  </script>
+  
 </body>
 </html>
