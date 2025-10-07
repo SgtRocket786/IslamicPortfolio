@@ -1,0 +1,45 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Article — Islamic Studies</title>
+    <style>
+      :root{ --bg:#0b132b; --text:#eaf2ff; --muted:#9fb3d1; --gold:#eab308; --card:#16213e; --border:#1e293b; --shadow:0 10px 30px rgba(0,0,0,.25); }
+      body{margin:0; font-family: system-ui, Segoe UI, Roboto, "Noto Sans"; background:var(--bg); color:var(--text);}
+      .container{max-width:900px; margin:0 auto; padding:20px 22px 60px;}
+      a{color:var(--gold)}
+      header{position:sticky;top:0;background:linear-gradient(90deg,var(--card),#1e3a8a);padding:10px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+      .title{font-family: "Merriweather", Georgia, serif; font-size:clamp(24px,4vw,34px); margin:16px 0 6px;}
+      .meta{color:var(--muted); margin-bottom:16px}
+      .banner{width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:12px; box-shadow:var(--shadow);}
+      .prose{line-height:1.8; font-size:18px;}
+      .prose h2{margin-top:26px; color:var(--gold)}
+    </style>
+  </head>
+  <body>
+    <header><a href="./#articles">← Back to Articles</a></header>
+    <main class="container">
+      <img id="banner" class="banner" alt="Article banner" />
+      <h1 id="title" class="title"></h1>
+      <div id="meta" class="meta"></div>
+      <article id="content" class="prose"></article>
+    </main>
+    <script>
+      const ARTICLES = {
+        a1: { title:'The Meaning of Istiwa in Classical Scholarship', category:'Aqeedah', date:'2025-06-12', banner:'article1.jpg', html:`<p>Classical Sunni scholarship approached terms like <em>istiwaʾ</em> with linguistic sobriety and theological restraint. The rule was to affirm what Allah affirmed for Himself without likening (tashbīh) or asking how (takyīf).</p><h2>Early Voices</h2><p>Reports from the Salaf emphasize consigning detailed modality to Allah (tafwīḍ), while affirming the wording transmitted.</p><p>This short note surveys representative texts and cautions against speculative excess.</p>` },
+        a2: { title:'Purification: A Practical Note Across Madhhabs', category:'Fiqh', date:'2025-05-28', banner:'article2.jpg', html:`<p>These notes summarize core rulings on <em>ṭahārah</em> across two schools with practical tips for daily worship.</p><ul><li>Water categories and their implications.</li><li>Najāsah removal with minimal hardship.</li><li>Wudu invalidators and common pitfalls.</li></ul><p>References are provided for further study.</p>` },
+        a3: { title:'On Seeking Knowledge with Adab', category:'Reflections', date:'2025-04-18', banner:'article3.jpg', html:`<p>Adab is both a means and a fruit of knowledge. Companionship with teachers, care for sources, and humility in conclusions are recurring themes in our tradition.</p><p>May Allah grant sincerity and beneficial knowledge.</p>` },
+      };
+      const params = new URLSearchParams(location.search); const id = params.get('id'); const a = ARTICLES[id];
+      if(!a){ document.getElementById('title').textContent = 'Article not found'; }
+      else {
+        document.getElementById('title').textContent = a.title;
+        document.getElementById('meta').textContent = `${a.category} • ${new Date(a.date).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})}`;
+        document.getElementById('banner').src = a.banner; document.getElementById('banner').loading='lazy';
+        document.getElementById('content').innerHTML = a.html;
+      }
+    </script>
+  </body>
+  </html>
